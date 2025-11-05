@@ -1,32 +1,32 @@
-// 每个袋子里的零食
+// Snack items in each bag
 const snackBags = [
     {
         id: 0,
-        name: '薯片袋',
-        items: ['🥔薯片', '🥔薯片', '🥔薯片', '🥔薯片', '🥔薯片'],
+        name: 'Chips Bag',
+        items: ['🥔', '🥔', '🥔', '🥔', '🥔'],
         currentIndex: 0,
         isOpen: false
     },
     {
         id: 1,
-        name: '糖果袋',
+        name: 'Candy Bag',
         items: ['🍬', '🍭', '🍫', '🍩', '🍪'],
         currentIndex: 0,
         isOpen: false
     },
     {
         id: 2,
-        name: '薯条袋',
+        name: 'Fries Bag',
         items: ['🍟', '🍟', '🍟', '🍟', '🍟'],
         currentIndex: 0,
         isOpen: false
     }
 ];
 
-// 获取所有零食袋元素
+// Get all snack bag elements
 const bagElements = document.querySelectorAll('.snack-bag');
 
-// 为每个零食袋添加点击事件
+// Add click event to each snack bag
 bagElements.forEach((bagElement) => {
     bagElement.addEventListener('click', () => {
         const bagId = parseInt(bagElement.dataset.bagId);
@@ -35,42 +35,42 @@ bagElements.forEach((bagElement) => {
 });
 
 /**
- * 处理零食袋点击事件
- * @param {number} bagId - 被点击的袋子ID
- * @param {HTMLElement} bagElement - 被点击的袋子元素
+ * Handle snack bag click event
+ * @param {number} bagId - The ID of the clicked bag
+ * @param {HTMLElement} bagElement - The clicked bag element
  */
 function handleBagClick(bagId, bagElement) {
     const bag = snackBags[bagId];
 
-    // 如果这个袋子已经打开，取出一个零食
+    // If this bag is already open, take out a snack
     if (bag.isOpen) {
         takeOutItem(bagId);
     } else {
-        // 关闭所有其他袋子
+        // Close all other bags
         closeAllBags();
 
-        // 打开这个袋子
+        // Open this bag
         openBag(bagId, bagElement);
     }
 }
 
 /**
- * 打开指定的零食袋
- * @param {number} bagId - 要打开的袋子ID
- * @param {HTMLElement} bagElement - 袋子元素
+ * Open the specified snack bag
+ * @param {number} bagId - The ID of the bag to open
+ * @param {HTMLElement} bagElement - The bag element
  */
 function openBag(bagId, bagElement) {
     const bag = snackBags[bagId];
 
-    // 标记为打开状态
+    // Mark as open
     bag.isOpen = true;
     bagElement.classList.add('open');
 
-    console.log(`${bag.name}已打开！点击再次取出零食。`);
+    console.log(`${bag.name} is opened! Click again to take out snacks.`);
 }
 
 /**
- * 关闭所有零食袋
+ * Close all snack bags
  */
 function closeAllBags() {
     snackBags.forEach((bag) => {
@@ -83,48 +83,48 @@ function closeAllBags() {
 }
 
 /**
- * 从打开的袋子中取出一个零食
- * @param {number} bagId - 袋子ID
+ * Take out an item from the opened bag
+ * @param {number} bagId - The bag ID
  */
 function takeOutItem(bagId) {
     const bag = snackBags[bagId];
 
-    // 检查是否还有零食
+    // Check if there are still snacks
     if (bag.currentIndex >= bag.items.length) {
-        alert(`${bag.name}已经空了！`);
+        alert(`${bag.name} is empty!`);
         return;
     }
 
-    // 取出当前零食
+    // Take out current snack
     const item = bag.items[bag.currentIndex];
     bag.currentIndex++;
 
-    // 显示零食
+    // Display snack
     displayItem(bagId, item);
 
-    console.log(`从${bag.name}取出：${item}`);
+    console.log(`Took out from ${bag.name}: ${item}`);
 }
 
 /**
- * 显示取出的零食
- * @param {number} bagId - 袋子ID
- * @param {string} item - 零食表情符号
+ * Display the taken out snack
+ * @param {number} bagId - The bag ID
+ * @param {string} item - The snack emoji
  */
 function displayItem(bagId, item) {
     const itemsContainer = document.getElementById(`items-${bagId}`);
 
-    // 创建零食元素
+    // Create snack element
     const itemElement = document.createElement('div');
     itemElement.className = 'item';
     itemElement.textContent = item;
 
-    // 添加到容器
+    // Add to container
     itemsContainer.appendChild(itemElement);
 }
 
-// 添加键盘快捷键支持
+// Add keyboard shortcut support
 document.addEventListener('keydown', (e) => {
-    // 按数字键 1, 2, 3 打开对应的袋子
+    // Press 1, 2, 3 to open corresponding bags
     if (e.key === '1' || e.key === '2' || e.key === '3') {
         const bagId = parseInt(e.key) - 1;
         const bagElement = document.querySelector(`[data-bag-id="${bagId}"]`);
@@ -133,13 +133,13 @@ document.addEventListener('keydown', (e) => {
         }
     }
 
-    // 按 Escape 关闭所有袋子
+    // Press Escape to close all bags
     if (e.key === 'Escape') {
         closeAllBags();
     }
 });
 
-// 初始化提示
-console.log('欢迎来到互动零食袋！');
-console.log('点击任意零食袋打开它，然后再次点击取出零食。');
-console.log('快捷键：1/2/3 打开对应袋子，Esc 关闭所有袋子');
+// Initialization message
+console.log('Welcome to Interactive Snack Bags!');
+console.log('Click any snack bag to open it, then click again to take out snacks.');
+console.log('Shortcuts: 1/2/3 to open bags, Esc to close all bags');
