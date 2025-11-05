@@ -2,22 +2,22 @@
 const snackBags = [
     {
         id: 0,
-        name: '红色零食袋',
-        items: ['🍪', '🍫', '🍬', '🍭', '🍩'],
+        name: '薯片袋',
+        items: ['🥔薯片', '🥔薯片', '🥔薯片', '🥔薯片', '🥔薯片'],
         currentIndex: 0,
         isOpen: false
     },
     {
         id: 1,
-        name: '蓝色零食袋',
-        items: ['🍿', '🥨', '🍰', '🧁', '🍦'],
+        name: '糖果袋',
+        items: ['🍬', '🍭', '🍫', '🍩', '🍪'],
         currentIndex: 0,
         isOpen: false
     },
     {
         id: 2,
-        name: '绿色零食袋',
-        items: ['🍎', '🍊', '🍋', '🍉', '🍇'],
+        name: '薯条袋',
+        items: ['🍟', '🍟', '🍟', '🍟', '🍟'],
         currentIndex: 0,
         isOpen: false
     }
