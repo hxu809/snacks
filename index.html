@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互动零食袋</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>互动零食袋</h1>
+        <p class="instructions">点击零食袋打开，再次点击取出零食！</p>
+
+        <div class="snack-bags">
+            <!-- 红色零食袋 -->
+            <div class="snack-bag-wrapper">
+                <div class="snack-bag red" data-bag-id="0">
+                    <div class="bag-body">
+                        <div class="bag-top"></div>
+                        <div class="bag-label">红色零食袋</div>
+                    </div>
+                </div>
+                <div class="items-container" id="items-0"></div>
+            </div>
+
+            <!-- 蓝色零食袋 -->
+            <div class="snack-bag-wrapper">
+                <div class="snack-bag blue" data-bag-id="1">
+                    <div class="bag-body">
+                        <div class="bag-top"></div>
+                        <div class="bag-label">蓝色零食袋</div>
+                    </div>
+                </div>
+                <div class="items-container" id="items-1"></div>
+            </div>
+
+            <!-- 绿色零食袋 -->
+            <div class="snack-bag-wrapper">
+                <div class="snack-bag green" data-bag-id="2">
+                    <div class="bag-body">
+                        <div class="bag-top"></div>
+                        <div class="bag-label">绿色零食袋</div>
+                    </div>
+                </div>
+                <div class="items-container" id="items-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
